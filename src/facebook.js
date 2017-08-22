@@ -140,10 +140,7 @@ class FacebookLogin extends React.Component {
   }
 
   responseApi = (authResponse) => {
-    window.FB.api('/me', { locale: this.props.language, fields: this.props.fields }, (me) => {
-      Object.assign(me, authResponse);
-      this.props.callback(me);
-    });
+    return this.props.callback(authResponse);
   };
 
   checkLoginState = (response) => {
